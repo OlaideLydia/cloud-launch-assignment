@@ -1,0 +1,9 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0b1220; color: #eef2ff; }
+main { max-width: 800px; margin: 40px auto; padding: 24px; }
+h1 { font-size: 40px; margin: 0 0 8px; }
+p { opacity: .9; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+.cards article { background: #121b2f; border: 1px solid #223052; border-radius: 16px; padding: 16px; }
+footer { opacity: .7; margin-top: 24px; font-size: 14px; }

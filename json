@@ -1,0 +1,61 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "S3ListAllMyBuckets",
+      "Effect": "Allow",
+      "Action": "s3:ListAllMyBuckets",
+      "Resource": "*"
+    },
+    {
+      "Sid": "S3ListSpecificBuckets",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": [
+        "arn:aws:s3:::cloud-launch-site-2025",
+        "arn:aws:s3:::cloud-launch-private-2025",
+        "arn:aws:s3:::cloud-launch-visible-2025"
+      ]
+    },
+    {
+      "Sid": "S3ReadSiteBucket",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::cloud-launch-site-2025/*"
+    },
+    {
+      "Sid": "S3ReadWritePrivateBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::cloud-launch-private-2025/*"
+    },
+    {
+      "Sid": "S3ExplicitDenyDeletesAnywhere",
+      "Effect": "Deny",
+      "Action": [
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+      ],
+      "Resource": [
+        "arn:aws:s3:::cloud-launch-site-2025/*",
+        "arn:aws:s3:::cloud-launch-private-2025/*",
+        "arn:aws:s3:::cloud-launch-visible-2025/*"
+      ]
+    },
+    {
+      "Sid": "VPCReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeSecurityGroups"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
